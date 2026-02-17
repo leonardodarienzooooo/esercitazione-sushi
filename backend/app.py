@@ -1,9 +1,9 @@
 from flask import Flask, jsonify, request
-from flask_cors import CORS
+from flask_cors import CORS # <--- DEVE ESSERCI QUESTO
 from database_wrapper import DatabaseWrapper
 
 app = Flask(__name__)
-CORS(app)
+CORS(app) # <--- E QUESTO (Abilita i permessi per l'app Ionic)
 db = DatabaseWrapper()
 
 # --- ROTTE PRODOTTI ---
@@ -52,4 +52,5 @@ def update_stato(id_ordine):
     return jsonify({"status": "aggiornato"})
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    # Aggiungi host='0.0.0.0' per farlo funzionare bene online
+    app.run(debug=True, host='0.0.0.0', port=5000)

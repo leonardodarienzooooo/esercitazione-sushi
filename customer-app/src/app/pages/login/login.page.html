@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Sushi App - Login Tavolo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div style="text-align: center; margin-bottom: 20px;">
+    <h2>🍣 Benvenuto al Sushi</h2>
+    <p>Inserisci i tuoi dati per ordinare</p>
+  </div>
+
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Il tuo Nome</ion-label>
+      <ion-input [(ngModel)]="nomeCliente" type="text" placeholder="Es. Mario"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Codice Tavolo</ion-label>
+      <ion-input [(ngModel)]="codiceTavolo" type="text" placeholder="Es. T3"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="entra()" class="ion-margin-top">
+    Entra nel Menu
+  </ion-button>
+</ion-content>

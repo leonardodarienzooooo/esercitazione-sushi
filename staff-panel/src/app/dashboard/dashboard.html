@@ -1,0 +1,29 @@
+<div style="padding: 20px; font-family: sans-serif;">
+  <h1>👨‍🍳 Pannello Staff - Gestione Ordini</h1>
+  
+  <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+    <thead style="background: #eee;">
+      <tr>
+        <th>Tavolo</th>
+        <th>Cliente</th>
+        <th>Piatto</th>
+        <th>Stato Attuale</th>
+        <th>Azioni</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let o of ordini">
+        <td>{{o.codice_tavolo}}</td>
+        <td>{{o.nome_cliente}}</td>
+        <td>{{o.piatto}}</td>
+        <td [style.color]="o.stato == 'consegnato' ? 'green' : 'orange'">
+          <strong>{{o.stato}}</strong>
+        </td>
+        <td>
+          <button (click)="cambiaStato(o.id, 'in preparazione')">Prepara</button>
+          <button (click)="cambiaStato(o.id, 'consegnato')">Consegna</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
